@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, useHistory } from "react-router-dom";
 
 const Menu = () => {
   const padding = {
@@ -68,9 +68,11 @@ const Footer = () => (
 );
 
 const CreateNew = props => {
+
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [info, setInfo] = useState("");
+  let history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -80,6 +82,7 @@ const CreateNew = props => {
       info,
       votes: 0
     });
+    history.push('/');
   };
 
   return (
